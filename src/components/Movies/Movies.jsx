@@ -1,17 +1,16 @@
-import {useGetMoviesQuery} from "../../services/TMDB.ts";
-import MovieList from "../MovieList/MovieList.tsx";
+import {useGetMoviesQuery} from "../../services/TMDB.js";
+import MovieList from "../MovieList/MovieList.jsx";
 import {Box, CircularProgress, Typography, useMediaQuery} from "@mui/material";
 import {useSelector} from "react-redux";
 import {useState} from "react";
-import Pagination from "../Pagination/Pagination.tsx";
-import FeaturesMovies from "../FeaturesMovie/featuresMovies.tsx";
-import {MovieProps} from "../types/types.ts";
+import Pagination from "../Pagination/Pagination.jsx";
+import FeaturesMovies from "../FeaturesMovie/featuresMovies.jsx";
 
 const Movies = () => {
     const lg = useMediaQuery((theme) => theme.breakpoints.only('lg'))
     const [page, setPage] = useState(1)
     const {genreCategoryName, searchQuery} = useSelector((state) => state.currentGenreOrCategory)
-    const {data, error, isFetching}: { data: MovieProps, error: boolean, isFetching: boolean } = useGetMoviesQuery({genreCategoryName, page, searchQuery})
+    const {data, error, isFetching} = useGetMoviesQuery({genreCategoryName, page, searchQuery})
     const numberOfMovies = lg ? 18 : 16
     const randomNumber = Math.floor(Math.random() * 20) + 1
     if (isFetching) {

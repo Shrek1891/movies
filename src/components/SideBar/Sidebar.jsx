@@ -10,11 +10,11 @@ import {
     useTheme
 } from "@mui/material";
 import {Link} from "react-router-dom";
-import useStyles from "./stylesSidebar.ts";
-import {useGetGenresQuery} from "../../services/TMDB.ts";
+import useStyles from "./stylesSidebar.js";
+import {useGetGenresQuery} from "../../services/TMDB.js";
 import genreIcons from "../../assets/genres/index.js";
 import {useDispatch, useSelector} from "react-redux";
-import {selectGenreCategory} from "../../features/currentGenreOrCategory.ts";
+import {selectGenreCategory} from "../../features/currentGenreOrCategory.js";
 import {useEffect} from "react";
 
 const categories = [
@@ -23,14 +23,11 @@ const categories = [
     {label: 'Upcoming', value: 'upcoming'}
 ]
 
-interface GenresProps {
-    genres: { name: string, id: number }[]
-}
 
 
 const Sidebar = ({setMobileOpen}) => {
     const theme = useTheme()
-    const {data, isFetching}: { data: GenresProps, error: boolean, isFetching: boolean } = useGetGenresQuery()
+    const {data, isFetching} = useGetGenresQuery()
     const classes = useStyles()
     const dispatch = useDispatch()
     const {genreCategoryName} = useSelector((state) => state.currentGenreOrCategory)

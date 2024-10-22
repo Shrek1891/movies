@@ -1,10 +1,9 @@
 import {useSelector} from "react-redux";
 import {Box, Button, Typography} from "@mui/material";
 import {ExitToApp} from "@mui/icons-material";
-import {useGetListQuery} from "../services/TMDB.ts";
-import RateCards from "./RateCards/RateCards.tsx";
+import {useGetListQuery} from "../services/TMDB.js";
+import RateCards from "./RateCards/RateCards.jsx";
 import {useEffect} from "react";
-import {favoriteProps, watchListProps} from "./types/types.ts";
 
 const Profile = () => {
     const {user} = useSelector((state) => state.user)
@@ -12,19 +11,13 @@ const Profile = () => {
         localStorage.clear()
         window.location.href = '/'
     }
-    const {data: favoriteMovies, refetch: refetchFavorite}: {
-        data: favoriteProps,
-        refetch: () => void
-    } = useGetListQuery({
+    const {data: favoriteMovies, refetch: refetchFavorite} = useGetListQuery({
         listName: 'favorite/movies',
         accountId: user.id,
         sessionId: localStorage.getItem('session_id'),
         page: 1
     })
-    const {data: watchListMovies, refetch: refetchWatchList}: {
-        data: watchListProps,
-        refetch: () => void
-    } = useGetListQuery({
+    const {data: watchListMovies, refetch: refetchWatchList} = useGetListQuery({
         listName: 'watchlist/movies',
         accountId: user.id,
         sessionId: localStorage.getItem('session_id'),

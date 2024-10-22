@@ -1,4 +1,4 @@
-import useStyles from './styles.ts'
+import useStyles from './styles.js'
 import {Box, Card, CardContent, CardMedia, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 

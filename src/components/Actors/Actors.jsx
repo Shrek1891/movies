@@ -1,24 +1,19 @@
 import {useParams} from "react-router-dom";
-import {useGetActorsDetailsQuery, useGetMoviesByActorIdQuery} from "../../services/TMDB.ts";
+import {useGetActorsDetailsQuery, useGetMoviesByActorIdQuery} from "../../services/TMDB.js";
 import {Box, Button, CircularProgress, Grid2, Typography} from "@mui/material";
 import {ArrowBack} from "@mui/icons-material";
-import useStyles from "./style";
-import MovieList from "../MovieList/MovieList.tsx";
-import Pagination from "../Pagination/Pagination.tsx";
+import useStyles from "./style.js";
+import MovieList from "../MovieList/MovieList.jsx";
+import Pagination from "../Pagination/Pagination.jsx";
 import {useState} from "react";
-import {ActorProps, MovieProps} from "../types/types.ts";
 
 
 const Actors = () => {
     const classes = useStyles()
     const [page, setPage] = useState(1)
     const {id} = useParams();
-    const {data, isFetching, error}: {
-        data: ActorProps,
-        isFetching: boolean,
-        error: boolean
-    } = useGetActorsDetailsQuery(id);
-    const {data: movies}: { data: MovieProps, isFetching: boolean, error: boolean } = useGetMoviesByActorIdQuery({
+    const {data, isFetching, error} = useGetActorsDetailsQuery(id);
+    const {data: movies} = useGetMoviesByActorIdQuery({
         id,
         page
     });

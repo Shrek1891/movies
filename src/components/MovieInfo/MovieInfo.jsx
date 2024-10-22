@@ -1,10 +1,10 @@
 import {Link, useParams} from "react-router-dom";
-import {tmdbApiKey, useGetListQuery, useGetMovieQuery, useGetRecomandationsQuery} from "../../services/TMDB.ts";
+import {tmdbApiKey, useGetListQuery, useGetMovieQuery, useGetRecomandationsQuery} from "../../services/TMDB.js";
 import {Box, Button, ButtonGroup, CircularProgress, Grid2, Modal, Rating, Typography} from "@mui/material";
-import useStyles from "./style.ts";
+import useStyles from "./style.js";
 import genreIcons from "../../assets/genres/index.js";
 import {useDispatch, useSelector} from "react-redux";
-import {selectGenreCategory} from "../../features/currentGenreOrCategory.ts";
+import {selectGenreCategory} from "../../features/currentGenreOrCategory.js";
 import {
     ArrowBack,
     Favorite,
@@ -15,27 +15,26 @@ import {
     Remove,
     Theaters
 } from "@mui/icons-material";
-import MovieList from "../MovieList/MovieList.tsx";
+import MovieList from "../MovieList/MovieList.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {favoriteProps, MovieInfoProps, watchListProps} from "../types/types.ts";
 
 
 const MovieInfo = () => {
     const {user} = useSelector((state) => state.user)
     const classes = useStyles()
     const {id} = useParams()
-    const {data: recomandations,}: { data: MovieInfoProps, isFetching: boolean } = useGetRecomandationsQuery({
+    const {data: recomandations,} = useGetRecomandationsQuery({
         list: 'recommendations',
         id
     })
-    const {data: favoriteMovies,}: { data: favoriteProps, isFetching: boolean } = useGetListQuery({
+    const {data: favoriteMovies,} = useGetListQuery({
         listName: 'favorite/movies',
         accountId: user.id,
         sessionId: localStorage.getItem('session_id'),
         page: 1
     })
-    const {data: watchListMovies}: { data: watchListProps, isFetching: boolean } = useGetListQuery({
+    const {data: watchListMovies} = useGetListQuery({
         listName: 'watchlist/movies',
         accountId: user.id,
         sessionId: localStorage.getItem('session_id'),
@@ -44,11 +43,7 @@ const MovieInfo = () => {
     const [open, setOpen] = useState(false)
     const [isFavorite, setIsFavorite] = useState(false)
     const [isWatchList, setIsWatchList] = useState(false)
-    const {data, isFetching, error}: {
-        data: MovieInfoProps,
-        isFetching: boolean,
-        error: boolean
-    } = useGetMovieQuery(id)
+    const {data, isFetching, error} = useGetMovieQuery(id)
     useEffect(() => {
         setIsFavorite(
             !!favoriteMovies?.results.find((movie) => movie?.id === data?.id)

@@ -1,5 +1,4 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {Actors} from "../components/types/types.ts";
 
 export const tmdbApiKey = import.meta.env.VITE_REACT_APP_API_BASE_KEY
 
@@ -34,7 +33,7 @@ export const tmbdApi = createApi({
         getRecomandations: builder.query({
             query: ({list, id}) => `movie/${id}/${list}?api_key=${tmdbApiKey}&language=en-US&page=1`
         }),
-        getActorsDetails: builder.query<Actors, number>({
+        getActorsDetails: builder.query({
             query: (id) => `person/${id}?api_key=${tmdbApiKey}&language=en-US`
         }),
         getMoviesByActorId: builder.query({

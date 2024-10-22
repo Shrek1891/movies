@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {tmbdApi} from "../services/TMDB.ts";
-import {currentGenreOrCategory} from "../features/currentGenreOrCategory.ts";
-import {authSlice} from "../features/auth.ts";
+import {tmbdApi} from "../services/TMDB.js";
+import {currentGenreOrCategory} from "../features/currentGenreOrCategory.js";
+import {authSlice} from "../features/auth.js";
 
 
 

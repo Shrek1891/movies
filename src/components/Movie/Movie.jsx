@@ -1,4 +1,4 @@
-import useStyles from "./style"
+import useStyles from "./style.js"
 import {Grid2, Grow, Rating, Tooltip, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 

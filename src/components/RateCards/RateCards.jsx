@@ -1,6 +1,6 @@
-import useStyles from "./style"
+import useStyles from "./style.js"
 import {Box, Typography} from "@mui/material";
-import Movie from "../Movie/Movie.tsx";
+import Movie from "../Movie/Movie.jsx";
 
 const RateCards = ({title, data}) => {
     const classes = useStyles()

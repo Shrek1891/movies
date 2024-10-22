@@ -1,6 +1,6 @@
-import useStyles from "./style.ts"
+import useStyles from "./style.js"
 import {Grid2} from "@mui/material";
-import Movie from "../Movie/Movie.tsx";
+import Movie from "../Movie/Movie.jsx";
 
 
 const MovieList = ({movies, numberOfMovies}) => {

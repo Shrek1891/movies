@@ -1,4 +1,4 @@
-import NavBar from "./NavBar/NavBar.tsx";
+import NavBar from "./NavBar/NavBar.jsx";
 import {Outlet} from "react-router-dom";
 import useStyles from "../styles.ts";
 import {useTheme} from "@mui/material";

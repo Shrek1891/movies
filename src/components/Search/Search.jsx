@@ -1,9 +1,9 @@
-import useStyles from './style.ts'
+import useStyles from './style.js'
 import {InputAdornment, TextField} from "@mui/material";
 import {useState} from "react";
 import {Search as SearchIcon} from "@mui/icons-material";
 import {useDispatch} from "react-redux";
-import {searchMovie} from "../../features/currentGenreOrCategory.ts";
+import {searchMovie} from "../../features/currentGenreOrCategory.js";
 import {useLocation} from "react-router-dom";
 
 const Search = () => {

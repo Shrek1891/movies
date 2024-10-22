@@ -1,9 +1,9 @@
 import {createBrowserRouter,} from "react-router-dom";
-import Actors from "../components/Actors/Actors.tsx";
-import Profile from "../components/Profile.tsx";
-import Movies from "../components/Movies/Movies.tsx";
-import AppLayout from "../components/AppLayout.tsx";
-import MovieInfo from "../components/MovieInfo/MovieInfo.tsx";
+import Actors from "../components/Actors/Actors.jsx";
+import Profile from "../components/Profile.jsx";
+import Movies from "../components/Movies/Movies.jsx";
+import AppLayout from "../components/AppLayout.jsx";
+import MovieInfo from "../components/MovieInfo/MovieInfo.jsx";
 
 
 export const router = createBrowserRouter(

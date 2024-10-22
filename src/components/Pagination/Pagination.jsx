@@ -1,4 +1,4 @@
-import useStyles from './styles.ts'
+import useStyles from './styles.js'
 import {Button, Typography} from "@mui/material";
 
 const Pagination = ({currentPage, setPage, totalPages}) => {

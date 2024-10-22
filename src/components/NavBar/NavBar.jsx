@@ -1,14 +1,14 @@
 import {AppBar, Avatar, Button, Drawer, IconButton, Toolbar, useMediaQuery, useTheme} from "@mui/material";
-import useStyles from "./stylesNavBar.ts";
+import useStyles from "./stylesNavBar.js";
 import {AccountCircle, Brightness4, Brightness7, Menu,} from "@mui/icons-material";
-import Search from "../Search/Search.tsx";
+import Search from "../Search/Search.jsx";
 import {useContext, useEffect, useState} from "react";
-import Sidebar from "../SideBar/Sidebar.tsx";
+import Sidebar from "../SideBar/Sidebar.jsx";
 import {Link} from "react-router-dom";
-import {fetchToken, getSessionId, moviesApi} from "../utils";
+import {fetchToken, getSessionId, moviesApi} from "../utils/index.js";
 import {useDispatch, useSelector} from "react-redux";
-import {setUser} from "../../features/auth.ts";
-import {ColorModeContext} from "../utils/ToggleColorMode.tsx";
+import {setUser} from "../../features/auth.js";
+import {ColorModeContext} from "../utils/ToggleColorMode.jsx";
 
 const NavBar = () => {
     const {isAuthenticated, user} = useSelector((state) => state.user)
