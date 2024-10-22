@@ -1,6 +1,6 @@
 import NavBar from "./NavBar/NavBar.jsx";
 import {Outlet} from "react-router-dom";
-import useStyles from "../styles.ts";
+import useStyles from "../styles.js";
 import {useTheme} from "@mui/material";
 
 const AppLayout = () => {
