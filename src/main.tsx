@@ -1,14 +1,18 @@
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
+import App from "./components/App.tsx";
+import {Provider} from "react-redux";
+import store from "./app/store.ts";
 import './index.css'
-import {router} from "./routes/routes.tsx";
-import {RouterProvider} from "react-router-dom";
-import {NavBar} from "./components";
+import ToggleColorMode from "./components/utils/ToggleColorMode.tsx";
 
 
 createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-        <NavBar/>
-        <RouterProvider router={router}/>
-    </StrictMode>,
+    <Provider store={store}>
+        <ToggleColorMode>
+            <StrictMode>
+                <App/>
+            </StrictMode>
+        </ToggleColorMode>
+    </Provider>
 )
