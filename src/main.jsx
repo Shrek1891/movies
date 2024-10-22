@@ -7,7 +7,7 @@ import './index.css'
 import ToggleColorMode from "./components/utils/ToggleColorMode.jsx";
 
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')).render(
     <Provider store={store}>
         <ToggleColorMode>
             <StrictMode>
