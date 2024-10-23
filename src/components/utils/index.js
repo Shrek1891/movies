@@ -14,7 +14,7 @@ const fetchToken = async () => {
         const token = data.request_token
         if (data.success) {
             localStorage.setItem('token', token)
-            window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=${window.location.origin}/approved`;
+            window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=${window.location.origin}`;
         }
 
     } catch (error) {
