@@ -30,6 +30,10 @@ export const router = createBrowserRouter(
             {
                 path: "*",
                 element: <Movies/>
+            },
+            {
+                path: "https://movies-sy1p.vercel.app/aproved*",
+                element: <Movies/>
             }
 
         ]

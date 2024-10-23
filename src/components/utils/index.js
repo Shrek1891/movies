@@ -13,7 +13,6 @@ const fetchToken = async () => {
         const {data} = await moviesApi.get('/authentication/token/new')
         const token = data.request_token
         if (data.success) {
-            console.log(token)
             localStorage.setItem('token', token)
             window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=${window.location.origin}/approved`;
         }

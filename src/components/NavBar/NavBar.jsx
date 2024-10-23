@@ -67,7 +67,7 @@ const NavBar = () => {
                             </Button>
                         ) : (
                             <Button color="inherit" component={Link} to={`/profile/${user.id}`}
-                                    className={classes.linkButton} onClick={() => console.log('clicked')}>
+                                    className={classes.linkButton} >
                                 {!matches && <>My movies &nbsp;  </>}
                                 <Avatar
                                     style={{width: 24, height: 24}}
@@ -78,7 +78,6 @@ const NavBar = () => {
                         )
                         }
                     </div>
-                    {matches && 'Search...'}
                 </Toolbar>
             </AppBar>
             <div>
